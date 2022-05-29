@@ -32,12 +32,16 @@ class WeatherInfo {
 
 class TemperatureInfo {
   final double? temperature;
+  final int? pres;
+  final int? hum;
 
-  TemperatureInfo({this.temperature});
+  TemperatureInfo({this.temperature, this.pres, this.hum});
 
   factory TemperatureInfo.fromJson(Map<String, dynamic> json) {
     final temperature = json['temp'];
-    return TemperatureInfo(temperature: temperature);
+    final pres = json['pressure'];
+    final hum = json['humidity'];
+    return TemperatureInfo(temperature: temperature, pres: pres, hum: hum);
   }
 }
 
